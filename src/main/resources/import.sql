@@ -1,0 +1,2 @@
+INSERT INTO CLIENTES (nome, email, telefone) VALUES ('Allan Calixto', 'allancalixto1@gmail.com', '99999999');
+INSERT INTO CLIENTES (nome, email, telefone) VALUES ('Glaycianne', 'glaycianne@gmail.com', '888888888');
