@@ -40,4 +40,26 @@ public class CustomerController {
         }
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!");
     }
+    @PutMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Customer> update(@PathVariable("id") Long id, @RequestBody @Valid CustomerDto customerDto) {
+        Optional<Customer> customerOptional = customerService.findById(id);
+        if (customerOptional.isPresent()) {
+            Customer customer = new Customer();
+            BeanUtils.copyProperties(customerDto, customer);
+            customer.setId(customerOptional.get().getId());
+            return ResponseEntity.status(HttpStatus.OK).body(customerService.save(customer));
+        }
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!");
+    }
+    @DeleteMapping("/{id}")
+    @Transactional
+    public ResponseEntity<Void> delete(@PathVariable("id") Long id) {
+        Optional<Customer> customerOptional = customerService.findById(id);
+        if (customerOptional.isPresent()) {
+            customerService.delete(customerOptional.get());
+            return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        }
+            throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Customer not found!");
+    }
 }
