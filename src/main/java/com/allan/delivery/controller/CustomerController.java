@@ -28,9 +28,12 @@ public class CustomerController {
     @PostMapping
     @Transactional
     public ResponseEntity<Customer> save(@RequestBody  @Valid CustomerDto customerDto) {
-        Customer customer = new Customer();
-        BeanUtils.copyProperties(customerDto, customer);
-        return ResponseEntity.status(HttpStatus.CREATED).body(customerService.save(customer));
+        if (!customerService.existsByEmail(customerDto.getEmail())) {
+            Customer customer = new Customer();
+            BeanUtils.copyProperties(customerDto, customer);
+            return ResponseEntity.status(HttpStatus.CREATED).body(customerService.save(customer));
+        }
+           throw new ResponseStatusException(HttpStatus.CONFLICT, "Conflict: Email is already in use!");
     }
     @GetMapping("/{id}")
     public ResponseEntity<Customer> findById(@PathVariable("id") Long id) {

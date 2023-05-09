@@ -26,4 +26,8 @@ public class CustomerService {
     public void delete(Customer customer) {
         customerRepository.delete(customer);
     }
+
+    public boolean existsByEmail(String email) {
+        return customerRepository.existsByEmail(email);
+    }
 }
