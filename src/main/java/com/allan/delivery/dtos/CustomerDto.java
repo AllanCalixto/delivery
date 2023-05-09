@@ -1,16 +1,22 @@
 package com.allan.delivery.dtos;
 
-import com.sun.istack.NotNull;
+
 
 import lombok.Data;
 
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
 @Data
 public class CustomerDto {
-    @NotNull
+    @NotBlank
     private String name;
-    @NotNull
+    @NotBlank
+    @Email
     private String email;
-    @NotNull
+    @NotBlank
+    @Pattern(regexp = "\\d{9,11}")
     private String phone;
 
     public CustomerDto() {

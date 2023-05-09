@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import javax.transaction.Transactional;
+import javax.validation.Valid;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +27,7 @@ public class CustomerController {
     }
     @PostMapping
     @Transactional
-    public ResponseEntity<Customer> save(@RequestBody CustomerDto customerDto) {
+    public ResponseEntity<Customer> save(@RequestBody  @Valid CustomerDto customerDto) {
         Customer customer = new Customer();
         BeanUtils.copyProperties(customerDto, customer);
         return ResponseEntity.status(HttpStatus.CREATED).body(customerService.save(customer));
