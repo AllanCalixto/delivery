@@ -17,11 +17,11 @@ public class CustomerDto {
     private String email;
     @NotBlank
     @Pattern(regexp = "\\d{9,11}")
-    private String phone;
+    private String phone_number;
 
     public CustomerDto() {
         this.name = getName();
         this.email = getEmail();
-        this.phone = getPhone();
+        this.phone_number = getPhone_number();
     }
 }

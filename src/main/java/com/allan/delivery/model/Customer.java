@@ -11,15 +11,15 @@ import javax.persistence.*;
 @Data
 @EqualsAndHashCode(of = "id")
 @Entity
-@Table(name = "clientes")
+@Table(name = "customer")
 public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @Column(name = "nome", nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
     @Column(name = "email", nullable = false)
     private String email;
-    @Column(name = "telefone", nullable = false)
-    private String phone;
+    @Column(name = "phone_number", nullable = false)
+    private String phone_number;
 }

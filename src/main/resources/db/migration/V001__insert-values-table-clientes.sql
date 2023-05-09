@@ -1,0 +1,1 @@
+INSERT INTO customer( name, email, phone_number) VALUES ('Allan Calixto', 'allan@email.com', '(99)999999999');
