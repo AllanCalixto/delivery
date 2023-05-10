@@ -1,0 +1,1 @@
+INSERT INTO delivery ( rate, date_order, date_end) VALUES ('10', '2023-10-01', '2023-10-01');

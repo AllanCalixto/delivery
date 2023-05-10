@@ -35,7 +35,7 @@ public class CustomerController {
         }
            throw new ResponseStatusException(HttpStatus.CONFLICT, "Conflict: Email is already in use!");
     }
-    @GetMapping("/{id}")
+    @GetMapping("/{id}") 
     public ResponseEntity<Customer> findById(@PathVariable("id") Long id) {
         Optional<Customer> customerOptional = customerService.findById(id);
         if(customerOptional.isPresent()) {
