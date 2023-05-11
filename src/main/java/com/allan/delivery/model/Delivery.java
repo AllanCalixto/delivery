@@ -6,6 +6,7 @@ import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Entity
@@ -14,7 +15,7 @@ import javax.persistence.*;
 @Data
 @EqualsAndHashCode(of = "id")
 @Table(name = "delivery")
-public class Delivery {
+public class Delivery implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
