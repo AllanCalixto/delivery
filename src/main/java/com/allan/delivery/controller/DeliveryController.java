@@ -28,7 +28,7 @@ public class DeliveryController {
     @PostMapping
     @Transactional
     public ResponseEntity<Delivery> save(@RequestBody @Valid DeliveryDto deliveryDto){
-        Delivery delivery = new Delivery();
+        Delivery delivery = new Delivery(deliveryDto);
         BeanUtils.copyProperties(deliveryDto, delivery);
         return ResponseEntity.status(HttpStatus.CREATED).body(deliveryService.save(delivery));
     }

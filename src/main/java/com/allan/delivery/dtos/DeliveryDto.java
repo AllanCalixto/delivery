@@ -1,23 +1,34 @@
 package com.allan.delivery.dtos;
 
-import lombok.Data;
+import com.allan.delivery.enums.StatusDelivery;
+import com.allan.delivery.model.Delivery;
+import com.allan.delivery.model.Recipient;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
 
+
 @Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class DeliveryDto {
-    @NotBlank
+
     private String rate;
-    @NotBlank
+
     private String date_order;
-    @NotBlank
+
     private String date_end;
 
-
-    public DeliveryDto() {
-        this.rate = getRate();
-        this.date_order = getDate_order();
-        this.date_end = getDate_end();
-    }
+    @Enumerated(EnumType.STRING)
+    private StatusDelivery statusDelivery;
+    @Valid
+    private RecipientDto recipient;
 
 }

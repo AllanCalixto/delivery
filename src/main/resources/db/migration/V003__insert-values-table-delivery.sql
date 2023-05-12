@@ -1,1 +1,1 @@
-INSERT INTO delivery ( rate, date_order, date_end) VALUES ('10', '2023-10-01', '2023-10-01');
+INSERT INTO delivery ( name, street, number, complement, neighborhood, rate, date_order, date_end, status_delivery) VALUES ('Allan Calixto', 'Avenida A', '26', 'bloco B', 'Caucaia','10', '2023-10-01', '2023-10-01', 'PENDING');
