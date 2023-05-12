@@ -12,8 +12,6 @@ import javax.persistence.Embeddable;
 
 
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
 @Embeddable
 public class Recipient {
     @Column(name = "name", nullable = false)
@@ -26,6 +24,8 @@ public class Recipient {
     private String complement;
     @Column(name = "neighborhood", nullable = false)
     private String neighborhood;
+
+    public Recipient(){}
 
     public Recipient(RecipientDto recipientDto) {
         this.name = recipientDto.getName();
