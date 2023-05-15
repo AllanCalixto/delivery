@@ -1,0 +1,1 @@
+INSERT INTO occurrence (description, registration_date, delivery_id) VALUES ('one description in here', '2023-05-14', 2);

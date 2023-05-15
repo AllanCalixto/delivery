@@ -1,0 +1,1 @@
+ALTER TABLE occurrence ADD COLUMN delivery_id BIGINT;
