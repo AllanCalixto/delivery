@@ -18,10 +18,6 @@ public class Occurrence {
     @Column(name = "registration_date")
     private String registration_date;
 
-    @ManyToOne
-    @JoinColumn(name = "delivery_id")
-    private Delivery delivery;
-
     public Occurrence() {}
 
     public Occurrence(OccurrenceDto occurrenceDto) {
