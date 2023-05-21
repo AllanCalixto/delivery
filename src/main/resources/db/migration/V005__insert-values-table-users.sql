@@ -1,0 +1,1 @@
+insert into users (login, password) values('allancalixto', '$2a$12$PWJcli17G1ofIcK9W/HWaeKiy4Vq/l.CS.7KQ6YivTlPstJnoTTc6');
